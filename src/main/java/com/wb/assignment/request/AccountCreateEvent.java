@@ -20,6 +20,7 @@ public class AccountCreateEvent implements Serializable {
     private String customerType;
     private AccountType accountType;
     private AccountStatus status;
+    private String currency;
     private double depositAmount;
 }
 

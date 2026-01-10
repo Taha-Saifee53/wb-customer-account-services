@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -32,14 +33,18 @@ public class AccountService {
                 .customerId(event.getCustomerId())
                 .accountType(event.getAccountType())
                 .status(event.getStatus())
+                .currency(event.getCurrency())
                 .balance(BigDecimal.valueOf(event.getDepositAmount()))
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
                 .build();
 
         var saveAccount = accountRepository.save(account);
-
-        log.info("Account created successfully for customerId={}", event.getCustomerId());
+        if (!Objects.isNull(saveAccount.getAccountId())) {
+            log.info("Account created successfully for customerId={}", event.getCustomerId());
+        } else {
+            log.error("Account not created successfully for customerId={}", event.getCustomerId());
+        }
     }
 
     /**
@@ -48,13 +53,14 @@ public class AccountService {
     private void validateAccountRules(String customerId, AccountType accountType) {
 
         long accountCount = accountRepository.countByCustomerId(customerId);
-        if (accountCount > 10) {
+        if (accountCount >= 10) {
             log.error(
                     "{} : {}", "ACCOUNT_LIMIT_EXCEEDED",
                     "Customer already has maximum allowed accounts");
         }
 
-        if (accountRepository.existsByCustomerIdAndAccountType(customerId, accountType)) {
+        if (accountRepository.existsByCustomerIdAndAccountType(customerId, AccountType.SALARY)
+                && accountType.name().equalsIgnoreCase(AccountType.SALARY.name())) {
             log.error(
                     "{} : {}", "SALARY_ACCOUNT_EXISTS",
                     "Salary account already exists for customer");

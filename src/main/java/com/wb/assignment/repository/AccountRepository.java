@@ -11,7 +11,5 @@ public interface AccountRepository extends JpaRepository<Account, String> {
     long countByCustomerId(String customerId);
 
     boolean existsByCustomerIdAndAccountType(String customerId, AccountType accountType);
-
-    List<Account> findByCustomerId(String customerId);
 }
 
