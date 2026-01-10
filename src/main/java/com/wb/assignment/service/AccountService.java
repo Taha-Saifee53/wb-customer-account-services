@@ -27,7 +27,7 @@ public class AccountService {
 
         log.info("Creating account for customerId={}", event.getCustomerId());
         validateAccountRules(event.getCustomerId(), event.getAccountType());
-        Account account = Account.builder()
+        var account = Account.builder()
                 .accountId(generateAccountId(event.getCustomerId()))
                 .customerId(event.getCustomerId())
                 .accountType(event.getAccountType())
@@ -37,7 +37,7 @@ public class AccountService {
                 .updatedAt(LocalDateTime.now())
                 .build();
 
-        accountRepository.save(account);
+        var saveAccount = accountRepository.save(account);
 
         log.info("Account created successfully for customerId={}", event.getCustomerId());
     }
@@ -48,7 +48,7 @@ public class AccountService {
     private void validateAccountRules(String customerId, AccountType accountType) {
 
         long accountCount = accountRepository.countByCustomerId(customerId);
-        if (accountCount >= 10) {
+        if (accountCount > 10) {
             log.error(
                     "{} : {}", "ACCOUNT_LIMIT_EXCEEDED",
                     "Customer already has maximum allowed accounts");
