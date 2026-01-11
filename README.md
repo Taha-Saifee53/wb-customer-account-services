@@ -118,7 +118,7 @@ Customer (1) ────────< Account (N)
 
 1. H2 Database
 
-   a. Not suitable for production
+   a. Not suitable for production </br>
    b. Shared DB across services is only for demo purposes
 
 2. No Idempotency Handling
