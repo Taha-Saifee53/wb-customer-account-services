@@ -123,17 +123,17 @@ Customer (1) ────────< Account (N)
 
 2. No Idempotency Handling
 
-    a. Duplicate RabbitMQ messages could create duplicate accounts 
+    a. Duplicate RabbitMQ messages could create duplicate accounts </br>
     b. Needs event deduplication or idempotent keys
 
 3. No Retry / Dead Letter Queue
 
-   a. Failed message processing is not retried
+   a. Failed message processing is not retried </br>
    b. DLQ should be added for robustness
 
 4. Synchronous Validation Dependency
 
-   a. Account service assumes customer data consistency
+   a. Account service assumes customer data consistency </br>
    b. Could be improved using local cache or read model
 
 5. Basic Logging
