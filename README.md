@@ -97,12 +97,25 @@ Customer (1) ────────< Account (N)
 **Testing Strategy**
 
 1. JUnit 5 + Mockito
-2. 100% coverage for:
-   a. Service layer
-   b. RabbitMQ consumers
-   c. Configuration classes
+2. 100% coverage for: </br>
+   a. Service layer </br>
+   b. RabbitMQ consumers </br>
+   c. Configuration classes </br>
 3. External dependencies (RabbitMQ, DB) are mocked
 4. No embedded brokers used for unit tests
+
+**Environment Variables Configuration**
+
+To avoid committing sensitive information such as database usernames and passwords into source control, this service uses environment variables for all credentials.
+
+**Setting Environment Variables**
+
+<pre>
+set DB_USERNAME=sa (default password of H2 for development local purpose)
+set DB_PASSWORD= (default password of H2 for development local purpose)
+set RABBITMQ_USERNAME=guest (default password of RABBITMQ for development local purpose)
+set RABBITMQ_PASSWORD=guest (default password of RABBITMQ for development local purpose)
+</pre>
 
 **Assumptions**
 
