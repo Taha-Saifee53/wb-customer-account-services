@@ -92,7 +92,7 @@ Customer (1) ────────< Account (N)
 **Deterministic Account ID Generation**
 
 1. Account ID = customerId + sequence
-2. Ensures uniqueness without DB sequences (simple & predictable)
+2. Ensures uniqueness without DB sequences
 
 **Testing Strategy**
 
