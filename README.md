@@ -155,7 +155,7 @@ set RABBITMQ_PASSWORD=guest (default password of RABBITMQ only for development p
 
 **Future Improvements**
 
-1. Add Dead Letter Queues (DLQ)
+1. Need to add Dead Letter Queues (DLQ)
 2. Introduce idempotent event processing
 3. Use of PostgreSQL / Oracle for production
 4. Add Saga / Compensation logic
