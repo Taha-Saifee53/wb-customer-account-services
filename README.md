@@ -151,7 +151,7 @@ set RABBITMQ_PASSWORD=guest (default password of RABBITMQ only for development p
 
 5. Basic Logging
 
-   a. Distributed tracing (e.g. Zipkin) not implemented
+   a. Distributed tracing not implemented
 
 **Future Improvements**
 
