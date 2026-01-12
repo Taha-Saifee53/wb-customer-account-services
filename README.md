@@ -170,9 +170,3 @@ http://localhost:{port}/swagger-ui.html
 </pre>
 
 
-**Conclusion**
-
-The Account Service demonstrates a clean, scalable, and event-driven design, aligned with modern microservice best
-practices.
-It prioritizes decoupling, maintainability, and testability, while leaving room for future enterprise-grade
-enhancements.
