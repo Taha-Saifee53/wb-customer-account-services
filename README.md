@@ -157,7 +157,7 @@ set RABBITMQ_PASSWORD=guest (default password of RABBITMQ only for development p
 
 1. Add Dead Letter Queues (DLQ)
 2. Introduce idempotent event processing
-3. Use PostgreSQL / Oracle for production
+3. Use of PostgreSQL / Oracle for production
 4. Add Saga / Compensation logic
 5. Implement distributed tracing
 
